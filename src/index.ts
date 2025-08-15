@@ -5,7 +5,7 @@ import fs from "fs";
 import dotenv from "dotenv";
 
 import { collegeCodes } from "./data/CollegeCodes";
-import path, { resolve } from "path";
+import path from "path";
 
 dotenv.config();
 
