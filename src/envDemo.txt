@@ -1,0 +1,4 @@
+TARGET_SITE=https://dse2025.mahacet.org.in/dse25/index.php/hp_controller/instwiseallotment
+CAP1=result/cap1
+CAP2=result/cap2
+CSV_DATA=result/DATA.csv
