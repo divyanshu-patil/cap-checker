@@ -1,16 +1,20 @@
 "use client";
-import React, { useContext } from "react";
+import React, { ButtonHTMLAttributes, useContext, useState } from "react";
 import Button from "./Button";
-import { submitInstitutes } from "@/lib/api/submitInstitutes";
-import { InstituteCodeContext } from "@/context/InstituteCodeContext";
+import { twMerge } from "tailwind-merge";
 
-const SubmitButton = () => {
-  const { instituteCodes } = useContext(InstituteCodeContext);
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+
+const SubmitButton = ({ onClick, className, ...props }: ButtonProps) => {
   return (
     <Button
-      title="Submit"
-      onClick={() => submitInstitutes(instituteCodes)}
-      className="py-4 bg-violet-900 hover:bg-violet-800"
+      title="Download zip"
+      onClick={onClick}
+      className={twMerge(
+        "py-4 bg-gradient-to-r from-violet-700 to-purple-600 hover:bg-violet-800 ",
+        className
+      )}
+      {...props}
     />
   );
 };

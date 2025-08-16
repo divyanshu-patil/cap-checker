@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { strings } from "@/constants/strings";
 
 const poppins = Poppins({
   subsets: ["latin"], // Required
@@ -9,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Cap checker",
-  description: "download cap round data",
+  title: strings.appName,
+  description: strings.appDescription,
 };
 
 export default function RootLayout({
