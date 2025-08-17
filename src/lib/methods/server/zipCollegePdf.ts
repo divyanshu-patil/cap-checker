@@ -57,7 +57,7 @@ async function addToArchive(
   try {
     const { url } = await head(blobName);
     const res = await axios.get(url, { responseType: "stream" });
-    archive.append(res.data, { name: path.basename(blobName) });
+    archive.append(res.data, { name: blobName });
     return true;
   } catch {
     return false; // blob doesn’t exist
