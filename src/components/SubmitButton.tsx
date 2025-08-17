@@ -11,7 +11,7 @@ const SubmitButton = ({ onClick, className, ...props }: ButtonProps) => {
       title="Download zip"
       onClick={onClick}
       className={twMerge(
-        "py-4 bg-gradient-to-r from-violet-700 to-purple-600 hover:bg-violet-800 ",
+        "py-4 bg-gradient-to-r from-violet-700 to-purple-500 bg-[length:200%_200%] transition-transform duration-300 animate-gradient",
         className
       )}
       {...props}

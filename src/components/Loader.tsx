@@ -4,7 +4,7 @@ const Loader = () => {
   return (
     <div
       role="status"
-      className="fixed top-0 left-0 h-screen w-screen flex justify-center items-center bg-black/75"
+      className="fixed top-0 left-0 z-50 h-screen w-screen flex justify-center items-center bg-black/75"
     >
       <svg
         aria-hidden="true"

@@ -29,6 +29,24 @@
     }
   }
 
+
+}
+
+@theme {
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  --animate-spinner: spinner 1.5s cubic-bezier(0, 0.41, 0.35, 1) infinite;
+}
+
+@theme {
   @keyframes animate-gradient {
     0% {
       background-position: 0% 50%;
@@ -42,21 +60,9 @@
       background-position: 0% 50%;
     }
   }
-}
 
-/* globals.css or app.css */
-@theme {
-  @keyframes spinner {
-    0% {
-      transform: rotate(0deg);
-    }
 
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  --animate-spinner: spinner 1.5s cubic-bezier(0, 0.41, 0.35, 1) infinite;
+  --animate-gradient: animate-gradient 3s ease infinite;
 }
 
 @media (prefers-color-scheme: dark) {

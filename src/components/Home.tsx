@@ -21,7 +21,7 @@ const Home = () => {
             </span>
           ))}
         </div>
-        <p className="text-center text-lg">dse cap downloader</p>
+        <p className="text-center text-lg">DSE Cap PDF Downloader</p>
       </div>
 
       <InstituteCodeProvider>

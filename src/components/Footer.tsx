@@ -1,11 +1,12 @@
 import { strings } from "@/constants/strings";
 import Link from "next/link";
 import React from "react";
+import Seperator from "./Seperator";
 
 export default function Footer() {
   return (
     <footer className="relative mt-8 bg-gray-900">
-      <div className="flex justify-between items-center px-8 py-4">
+      <div className="flex justify-start items-center gap-6 px-8 py-4">
         <div
           className="bg-gradient-to-br from-violet-500 to-purple-500 px-8 py-4 rounded-xl flex flex-col justify-center items-center gap-3
       w-1/2 max-w-sm "
@@ -28,8 +29,8 @@ export default function Footer() {
               details with ease
             </p>
           </section>
-          <section role="link" className="w-full md:w-auto ">
-            <h2 className="text-center font-bold mb-2">Connect</h2>
+          <section className="w-full md:w-auto ">
+            <h2 className="text-center font-bold mb-2">Connect Me</h2>
             <nav aria-label="Social links" className="w-full">
               <ul className="flex justify-between items-center md:gap-4 ">
                 <li>
@@ -51,14 +52,55 @@ export default function Footer() {
             </nav>
           </section>
         </div>
-        <div>other info</div>
+        <section className="max-w-1/3 mx-auto">
+          <h2>Get in Touch</h2>
+          <p className="text-neutral-500">
+            Interested in collaborating with us?.
+          </p>
+          <address>
+            <ul className="mt-6 text-blue-300">
+              <li>
+                <a
+                  className="hidden md:flex gap-2 justify-start items-center"
+                  href="mailto:work.divyanshupatil@gmail.com"
+                >
+                  <Mail /> work.divyanshupatil@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  className="md:hidden flex gap-2 justify-start items-center"
+                  href="mailto:work.divyanshupatil@gmail.com"
+                >
+                  <Mail />
+                  Work Email
+                </a>
+                <br />
+              </li>
+              <li>
+                <a
+                  className="flex gap-2 justify-start items-center"
+                  href="tel:+918830282798"
+                >
+                  <Call /> <span>8830282798</span>
+                </a>
+              </li>
+            </ul>
+          </address>
+        </section>
       </div>
+      <Seperator />
+      <CopyRightText />
     </footer>
   );
 }
 
 const CopyRightText = () => {
-  return <></>;
+  return (
+    <section className="w-full flex justify-center items-center pb-6 text-gray-500 text-lg">
+      <small>&copy; 2025 Divyanshu Patil. All rights reserved.</small>
+    </section>
+  );
 };
 
 // SVG Icons (retained from your original file)
@@ -89,6 +131,36 @@ const LinkedIn = ({ size = 24 }) => (
     className="hover:fill-blue-900 transition-colors duration-300"
   >
     <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+  </svg>
+);
+
+const Mail = ({ size = 24 }) => (
+  <svg
+    stroke="currentColor"
+    fill="currentColor"
+    strokeWidth="0"
+    viewBox="0 0 512 512"
+    height={size}
+    width={size}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M437.332 80H74.668C51.199 80 32 99.198 32 122.667v266.666C32 412.802 51.199 432 74.668 432h362.664C460.801 432 480 412.802 480 389.333V122.667C480 99.198 460.801 80 437.332 80zM432 170.667L256 288 80 170.667V128l176 117.333L432 128v42.667z"></path>
+  </svg>
+);
+const Call = ({ size = 24 }) => (
+  <svg
+    stroke="currentColor"
+    fill="currentColor"
+    strokeWidth="0"
+    viewBox="0 0 16 16"
+    height={size}
+    width={size}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fillRule="evenodd"
+      d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+    ></path>
   </svg>
 );
 
