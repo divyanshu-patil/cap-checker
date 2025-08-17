@@ -67,5 +67,6 @@ npm run dev
 - Cheerio
 - Archiver
 - Tailwind CSS
+- TypeScript
 
 ### ⭐ Give a Star to My repo if you liked it
