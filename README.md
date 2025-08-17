@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Welcome to CAP-CHECKER (AKA Auto Cap)
 
-## Getting Started
+here you can download Provisional CAP round Allotment PDFs for dse engg within one click
 
-First, run the development server:
+## how to start
+
+- clone this repo by running
+
+```bash
+git clone https://github.com/divyanshu-patil/cap-checker.git
+```
+
+- navigate to cap-checker by running
+
+```bash
+cd cap-checker
+```
+
+- install dependencies
+
+```bash
+npm i
+```
+
+- create a `.env` file in root `/` folder with contents
+
+```text
+TARGET_SITE=https://dse2025.mahacet.org.in/dse25/index.php/hp_controller/instwiseallotment
+CAP1=./public/result/cap1
+CAP2=./public/result/cap2
+CAP3=./public/result/cap3
+CAP4=./public/result/cap4
+CSV_DATA=./result/DATA.csv
+```
+
+- run project
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Directory Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+├───app
+│   └───api
+│       ├───data          // used in legacy code currently not using
+│       └───getInstPdfZip // zip download endpoint
+├───components
+├───constants       // constants used in App
+├───context
+├───lib
+│   ├───api         // client API methods
+│   └───methods
+│       └───server  // server API methods
+└───types           // global typescipt types
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+# Techstack used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next Js
+- Axios
+- Cheerio
+- Archiver
+- Tailwind CSS
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### ⭐ Give a Star to My repo if you liked it
