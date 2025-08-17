@@ -24,10 +24,10 @@ async function saveCollegeDataPDF(collegeData: CollegeData) {
   const { code, cap1PdfUrl, cap2PdfUrl, cap3PdfUrl, cap4PdfUrl } = collegeData;
   let uploadedAny = false;
 
-  const cap1FilePath = `${filePaths.cap1Dir}${code}_cap1.pdf`;
-  const cap2FilePath = `${filePaths.cap2Dir}${code}_cap2.pdf`;
-  const cap3FilePath = `${filePaths.cap3Dir}${code}_cap3.pdf`;
-  const cap4FilePath = `${filePaths.cap4Dir}${code}_cap4.pdf`;
+  const cap1FilePath = `${filePaths.cap1Dir}/${code}_cap1.pdf`;
+  const cap2FilePath = `${filePaths.cap2Dir}/${code}_cap2.pdf`;
+  const cap3FilePath = `${filePaths.cap3Dir}/${code}_cap3.pdf`;
+  const cap4FilePath = `${filePaths.cap4Dir}/${code}_cap4.pdf`;
 
   // cap pdf download
   const downloadAndUploadPDF = async (url: string, blobName: string) => {
