@@ -11,7 +11,7 @@ const Home = () => {
     <div className="h-screen self-center max-w-screen overflow-hidden flex flex-col justify-center items-center gap-15">
       <div className="flex flex-col gap-4">
         <div>
-          {strings.appName.split(" ").map((val, index) => (
+          {strings.meta.appName.split(" ").map((val, index) => (
             <span
               key={index}
               className=" text-6xl md:text-7xl lg:text-8xl font-bold"
@@ -23,7 +23,7 @@ const Home = () => {
             </span>
           ))}
         </div>
-        <p className="text-center text-lg">DSE Cap PDF Downloader</p>
+        <p className="text-center text-lg">{strings.app.description}</p>
       </div>
 
       <InstituteCodeProvider>

@@ -6,6 +6,7 @@ import { InstituteCodeContext } from "@/context/InstituteCodeContext";
 import Input from "./Input";
 import Button from "./Button";
 import Error from "./Error";
+import { strings } from "@/constants/strings";
 
 const DataInput = () => {
   const { instituteCodes, setInstituteCodes } =
@@ -36,7 +37,11 @@ const DataInput = () => {
     >
       {error && <Error msg={error} dismissError={() => setError("")} />}
       {/* hello */}
-      <Input value={ipValue} onChange={(e) => setIpValue(e.target.value)} />
+      <Input
+        placeholder={strings.placeHolders.instCode}
+        value={ipValue}
+        onChange={(e) => setIpValue(e.target.value)}
+      />
       <Button onClick={handleAdd} />
     </form>
   );

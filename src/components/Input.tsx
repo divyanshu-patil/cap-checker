@@ -1,10 +1,7 @@
 import { InputHTMLAttributes } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
-const Input = ({
-  placeholder = "Institute code ex. 6273",
-  ...props
-}: InputProps) => {
+const Input = ({ placeholder = "placeholder", ...props }: InputProps) => {
   return (
     <input
       type="number"

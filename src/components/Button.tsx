@@ -1,11 +1,12 @@
 "use client";
+import { strings } from "@/constants/strings";
 import { ButtonHTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 const Button = ({
-  title = "Add",
+  title = strings.actions.add,
   className,
   onClick,
   ...props

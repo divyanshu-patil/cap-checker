@@ -6,7 +6,7 @@ const Error = ({
   dismissError: () => void;
 }) => {
   return (
-    <div className="fixed top-8 left-0 w-full  flex justify-center items-center">
+    <div className="fixed top-8 left-0 z-50 w-full  flex justify-center items-center">
       <div className="w-auto px-6 py-4 lg:py-1 rounded-2xl bg-red-100 flex justify-center items-center gap-10">
         <p className="capitalize  text-red-800 text-2xl ">{msg}</p>
         <button
