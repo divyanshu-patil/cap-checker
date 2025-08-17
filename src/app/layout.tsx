@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { strings } from "@/constants/strings";
+import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"], // Required
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>{children}</body>
+      <body className={`${poppins.className} antialiased max-w-screen`}>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

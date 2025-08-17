@@ -6,7 +6,7 @@ import Download from "./Download";
 
 const Home = () => {
   return (
-    <div className="h-screen self-center w-screen flex flex-col justify-center items-center gap-15">
+    <div className="h-screen self-center max-w-screen overflow-hidden flex flex-col justify-center items-center gap-15">
       <div className="flex flex-col gap-4">
         <div>
           {strings.appName.split(" ").map((val, index) => (
