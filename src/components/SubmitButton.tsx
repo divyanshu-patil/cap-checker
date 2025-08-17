@@ -1,7 +1,8 @@
 "use client";
-import React, { ButtonHTMLAttributes, useContext, useState } from "react";
-import Button from "./Button";
+import { ButtonHTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
+
+import Button from "./Button";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 

@@ -1,6 +1,7 @@
 import * as cheerio from "cheerio";
-import { CollegeData, getCollegeData } from "./getCollegeData";
-import { saveCollegeData } from "./storingData";
+
+import { getCollegeData } from "./getCollegeData";
+import { CollegeData } from "@/types/CollegeData";
 
 export async function getCollegeDataFromCodes(
   data: any,

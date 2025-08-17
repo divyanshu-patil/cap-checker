@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
+
 import {
   InvalidFieldsError,
   MissingFieldsError,
@@ -6,11 +7,11 @@ import {
   ServerError,
 } from "../errors";
 
-type SubmitResponse = {
-  success: boolean;
-  received?: string;
-  error?: string;
-};
+// type SubmitResponse = {
+//   success: boolean;
+//   received?: string;
+//   error?: string;
+// };
 
 export const submitInstitutes = async (instituteCodes: number[]) => {
   try {

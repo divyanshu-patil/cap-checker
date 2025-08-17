@@ -1,7 +1,8 @@
 import path from "path";
-import { CollegeData } from "./getCollegeData";
 import axios from "axios";
 import fs from "fs";
+
+import { CollegeData } from "@/types/CollegeData";
 
 export async function saveCollegeData(collegeData: CollegeData[]) {
   const results = await Promise.allSettled(

@@ -1,6 +1,7 @@
-import { strings } from "@/constants/strings";
 import Link from "next/link";
-import React from "react";
+
+import { strings } from "@/constants/strings";
+
 import Seperator from "./Seperator";
 
 export default function Footer() {

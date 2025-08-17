@@ -1,6 +1,8 @@
 "use client";
+import { useContext } from "react";
+
 import { InstituteCodeContext } from "@/context/InstituteCodeContext";
-import React, { useContext } from "react";
+
 import CodeItem from "./CodeItem";
 
 const InstituteCodes = () => {

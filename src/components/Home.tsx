@@ -1,7 +1,9 @@
+import { InstituteCodeProvider } from "@/context/InstituteCodeContext";
+
+import { strings } from "@/constants/strings";
+
 import DataInput from "./DataInput";
 import InstituteCodes from "./InstituteCodes";
-import { InstituteCodeProvider } from "@/context/InstituteCodeContext";
-import { strings } from "@/constants/strings";
 import Download from "./Download";
 
 const Home = () => {

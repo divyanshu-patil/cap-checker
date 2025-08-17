@@ -1,9 +1,10 @@
+import { NextRequest, NextResponse } from "next/server";
+
 import { fetchDataStatus } from "@/lib/methods/server/fetchData";
 import { CollegeData } from "@/lib/methods/server/getCollegeData";
 import { getCollegeDataFromCodes } from "@/lib/methods/server/getCollegeDataFromCodes";
 import { saveCollegeData } from "@/lib/methods/server/storingData";
 import { zipCollegePdf } from "@/lib/methods/server/zipCollegePdf";
-import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {

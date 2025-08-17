@@ -1,16 +1,20 @@
 "use client";
-import React, { useContext, useState } from "react";
-import { submitInstitutes } from "@/lib/api/submitInstitutes";
+import { useContext, useState } from "react";
+
 import { InstituteCodeContext } from "@/context/InstituteCodeContext";
+
+import { submitInstitutes } from "@/lib/api/submitInstitutes";
+
 import SubmitButton from "./SubmitButton";
 import Loader from "./Loader";
+import Error from "./Error";
+
 import {
   InvalidFieldsError,
   MissingFieldsError,
   NotFoundError,
   ServerError,
 } from "@/lib/errors";
-import Error from "./Error";
 
 const Download = () => {
   const { instituteCodes } = useContext(InstituteCodeContext);

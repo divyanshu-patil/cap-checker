@@ -1,8 +1,10 @@
 "use client";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
+
+import { InstituteCodeContext } from "@/context/InstituteCodeContext";
+
 import Input from "./Input";
 import Button from "./Button";
-import { InstituteCodeContext } from "@/context/InstituteCodeContext";
 import Error from "./Error";
 
 const DataInput = () => {
