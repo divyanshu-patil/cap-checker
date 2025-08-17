@@ -17,6 +17,26 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: strings.meta.appName,
   description: strings.meta.appDescription,
+  openGraph: {
+    title: strings.meta.appName,
+    description: strings.meta.appDescription,
+    siteName: strings.meta.appName,
+    images: [
+      {
+        url: "https://auto-cap-pied.vercel.app/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Website OG Image",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    title: strings.meta.appName,
+    description: strings.meta.appDescription,
+    images: ["https://auto-cap-pied.vercel.app/logo.png"],
+  },
 };
 
 export default function RootLayout({
