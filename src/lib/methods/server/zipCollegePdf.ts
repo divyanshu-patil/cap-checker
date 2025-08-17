@@ -1,16 +1,10 @@
-import fs from "fs";
-import path from "path";
 import archiver from "archiver";
 import { PassThrough } from "stream";
-
-const rootDir = process.cwd();
-
-const capDirs = {
-  cap1: path.resolve(rootDir, process.env.CAP1 as string),
-  cap2: path.resolve(rootDir, process.env.CAP2 as string),
-  cap3: path.resolve(rootDir, process.env.CAP3 as string),
-  cap4: path.resolve(rootDir, process.env.CAP4 as string),
-};
+import { finished } from "stream/promises";
+import { filePaths } from "@/constants/filePaths";
+import { head } from "@vercel/blob";
+import axios from "axios";
+import path from "path";
 
 export async function zipCollegePdf(
   collegeCodes: number[]
@@ -23,17 +17,20 @@ export async function zipCollegePdf(
   stream.on("data", (chunk) => chunks.push(chunk));
 
   let addedAny = false;
+  const caps = [
+    filePaths.cap1Dir,
+    filePaths.cap2Dir,
+    filePaths.cap3Dir,
+    filePaths.cap4Dir,
+  ];
 
-  for (const [capName, dirPath] of Object.entries(capDirs)) {
-    if (!fs.existsSync(dirPath)) {
-      console.log(`Skipping ${capName} — directory not found`);
-      continue;
-    }
-
+  for (const [i, capDirName] of caps.entries()) {
     let addedAnyLocal = false;
 
     for (const code of collegeCodes) {
-      const added = addToArchive({ code, archive, capName, dirPath });
+      const blobName = `${capDirName}/${code}_cap${i + 1}.pdf`;
+
+      const added = await addToArchive(archive, blobName);
       if (added) {
         addedAny = true;
         addedAnyLocal = true;
@@ -41,38 +38,28 @@ export async function zipCollegePdf(
     }
 
     if (!addedAnyLocal) {
-      console.log(`No PDFs found for ${capName}`);
+      console.log(`No PDFs found for ${capDirName}`);
     }
   }
 
-  if (!addedAny) {
-    return null;
-  }
+  if (!addedAny) return null;
 
   await archive.finalize();
+  await finished(stream);
+
   return Buffer.concat(chunks);
 }
 
-function addToArchive({
-  code,
-  archive,
-  capName,
-  dirPath,
-}: {
-  code: number;
-  capName: string;
-  dirPath: string;
-  archive: archiver.Archiver;
-}): boolean {
-  const filePattern = new RegExp(`^${code}.*\\.pdf$`, "i");
-  const files = fs.readdirSync(dirPath).filter((f) => filePattern.test(f));
-
-  if (files.length === 0) return false;
-
-  for (const file of files) {
-    const filePath = path.join(dirPath, file);
-    archive.file(filePath, { name: `${capName}/${file}` });
+async function addToArchive(
+  archive: archiver.Archiver,
+  blobName: string
+): Promise<boolean> {
+  try {
+    const { url } = await head(blobName);
+    const res = await axios.get(url, { responseType: "stream" });
+    archive.append(res.data, { name: path.basename(blobName) });
+    return true;
+  } catch {
+    return false; // blob doesn’t exist
   }
-
-  return true;
 }
