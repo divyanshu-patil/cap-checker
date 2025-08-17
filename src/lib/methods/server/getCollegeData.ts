@@ -33,12 +33,9 @@ export const getCollegeData = ({
     const onclick = $(el).attr("onclick");
 
     const capLink = onclick?.match(/'(https?:\/\/[^']+\.pdf)'/)?.[1] || "";
-    // console.log(capLink);
 
     return capLink;
   });
-  //   console.log(code, name, cap1, cap2);
-  //   console.log(code, name, cap1PdfUrl);
   return {
     code,
     name,

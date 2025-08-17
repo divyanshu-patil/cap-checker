@@ -18,5 +18,4 @@ export async function getCollegeDataFromCodes(
     .filter(Boolean);
 
   return collegeData;
-  //   await saveCollegeData(collegeData);
 }

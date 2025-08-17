@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 const poppins = Poppins({
-  subsets: ["latin"], // Required
-  weight: ["400", "500", "600", "700"], // Choose weights you need
-  variable: "--font-poppins", // optional CSS variable
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {

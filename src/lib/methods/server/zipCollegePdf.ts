@@ -33,7 +33,6 @@ export async function zipCollegePdf(
     let addedAnyLocal = false;
 
     for (const code of collegeCodes) {
-      // console.log(code);
       const added = addToArchive({ code, archive, capName, dirPath });
       if (added) {
         addedAny = true;

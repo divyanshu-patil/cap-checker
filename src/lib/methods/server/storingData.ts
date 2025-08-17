@@ -13,7 +13,7 @@ export async function saveCollegeData(collegeData: CollegeData[]) {
     console.error(`${failed.length} colleges failed to download`);
   }
 
-  const collegeCodes: number[] = collegeData.map((clg) => parseInt(clg.code));
+  // const collegeCodes: number[] = collegeData.map((clg) => parseInt(clg.code));
   console.log("All possible downloads completed!");
 }
 

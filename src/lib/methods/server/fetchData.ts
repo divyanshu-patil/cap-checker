@@ -1,6 +1,5 @@
 import axios from "axios";
 import { checkIfCapStarted } from "./capChecker";
-import { getCollegeDataFromCodes } from "./getCollegeDataFromCodes";
 
 interface Data {
   status: boolean;

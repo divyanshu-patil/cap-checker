@@ -5,7 +5,5 @@ declare namespace NodeJS {
     CAP2: string;
     CAP3: string;
     CAP4: string;
-
-    // Add more env vars here
   }
 }
