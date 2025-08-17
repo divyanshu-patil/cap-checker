@@ -34,19 +34,19 @@ export default function Footer() {
             <nav aria-label="Social links" className="w-full">
               <ul className="flex justify-between items-center md:gap-4 ">
                 <li>
-                  <a href="https://github.com/divyanshu-patil">
+                  <Link href="https://github.com/divyanshu-patil">
                     <Github size={35} />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/divyanshupatil/">
+                  <Link href="https://www.linkedin.com/in/divyanshupatil/">
                     <LinkedIn size={35} />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="https://wa.me/918830282798">
+                  <Link href="https://wa.me/918830282798">
                     <WhatsApp size={35} />
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -60,30 +60,30 @@ export default function Footer() {
           <address>
             <ul className="mt-6 text-blue-300">
               <li>
-                <a
+                <Link
                   className="hidden md:flex gap-2 justify-start items-center"
                   href="mailto:work.divyanshupatil@gmail.com"
                 >
                   <Mail /> work.divyanshupatil@gmail.com
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="md:hidden flex gap-2 justify-start items-center"
                   href="mailto:work.divyanshupatil@gmail.com"
                 >
                   <Mail />
                   Work Email
-                </a>
+                </Link>
                 <br />
               </li>
               <li>
-                <a
+                <Link
                   className="flex gap-2 justify-start items-center"
                   href="tel:+918830282798"
                 >
                   <Call /> <span>8830282798</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </address>
@@ -103,8 +103,7 @@ const CopyRightText = () => {
   );
 };
 
-// SVG Icons (retained from your original file)
-const Github = ({ size = 24 }) => (
+export const Github = ({ size = 24 }) => (
   <svg
     stroke="currentColor"
     fill="currentColor"
