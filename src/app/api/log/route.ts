@@ -23,6 +23,7 @@ export async function POST(req: NextRequest) {
       // update log file
       await put(logPath, updatedLogs, {
         access: "public",
+        allowOverwrite: true,
       });
       return NextResponse.json({ message: "log added" }, { status: 200 });
     }
@@ -33,6 +34,7 @@ export async function POST(req: NextRequest) {
   // If file not found → create new one
   await put(logPath, newEntry, {
     access: "public",
+    allowOverwrite: true,
   });
 
   return NextResponse.json({ message: "new log created" }, { status: 200 });
