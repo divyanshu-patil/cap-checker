@@ -30,6 +30,9 @@ export const submitInstitutes = async (instituteCodes: number[]) => {
     a.click();
     a.remove();
     window.URL.revokeObjectURL(url);
+
+    const response = await axios.post("/api/log", { codes: instituteCodes });
+    console.log(response.data);
   } catch (err) {
     const error = err as AxiosError;
     if (error.status === 404) {

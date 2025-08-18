@@ -4,3 +4,5 @@ export const filePaths = {
   cap3Dir: "cap3",
   cap4Dir: "cap4",
 };
+
+export const logPath = "logs/app.log";
