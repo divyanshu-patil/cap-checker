@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import { strings } from "@/constants/strings";
 
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body className={`${poppins.className} antialiased max-w-screen`}>
         <Navbar />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>

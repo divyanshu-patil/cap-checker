@@ -45,7 +45,12 @@ const Download = () => {
   return (
     <>
       {error && <Error dismissError={() => setError("")} msg={error} />}
-      {loading && <Loader />}
+      {loading && (
+        <Loader
+          title="zipping files..."
+          subtitle="this may take up to 20-30 seconds"
+        />
+      )}
       <SubmitButton onClick={handleClick} />
     </>
   );

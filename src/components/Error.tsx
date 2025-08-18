@@ -6,11 +6,11 @@ const Error = ({
   dismissError: () => void;
 }) => {
   return (
-    <div className="fixed top-8 left-0 z-50 w-full  flex justify-center items-center">
+    <div className="fixed top-8 left-0 z-50 w-full px-10  flex justify-center items-center">
       <div className="w-auto px-6 py-4 lg:py-1 rounded-2xl bg-red-100 flex justify-center items-center gap-10">
         <p className="capitalize  text-red-800 text-2xl ">{msg}</p>
         <button
-          className=" w-8 h-8 hover:bg-red-200 rounded-md transition-colors duration-300"
+          className=" w-16 h-16 md:w-10 md:h-10 hover:bg-red-200 rounded-md transition-colors duration-300"
           onClick={dismissError}
         >
           <svg
