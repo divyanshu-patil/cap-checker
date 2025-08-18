@@ -5,13 +5,19 @@ import { CollegeData } from "@/types/CollegeData";
 
 export async function getCollegeDataFromCodes(
   data: any,
-  collegeCodes: number[]
+  collegeCodes: number[],
+  capNumber?: number
 ): Promise<CollegeData[]> {
   const $ = cheerio.load(data);
   const tableRow = $(".whitebox table tr");
   const collegeData = tableRow
     .map((i, el) => {
-      const collegeData = getCollegeData({ tableRow: $(el), $, collegeCodes });
+      const collegeData = getCollegeData({
+        tableRow: $(el),
+        $,
+        collegeCodes,
+        capNumber,
+      });
       if (!collegeData) return;
       return collegeData;
     })

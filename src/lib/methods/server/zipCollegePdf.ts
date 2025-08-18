@@ -7,7 +7,8 @@ import axios from "axios";
 import path from "path";
 
 export async function zipCollegePdf(
-  collegeCodes: number[]
+  collegeCodes: number[],
+  capNumber = 0
 ): Promise<Buffer | null> {
   const archive = archiver("zip", { zlib: { level: 9 } });
   const chunks: Buffer[] = [];
@@ -24,21 +25,33 @@ export async function zipCollegePdf(
     filePaths.cap4Dir,
   ];
 
-  for (const [i, capDirName] of caps.entries()) {
-    let addedAnyLocal = false;
-
+  if (capNumber > 0) {
+    const capDirName = caps[capNumber - 1];
     for (const code of collegeCodes) {
-      const blobName = `${capDirName}/${code}_cap${i + 1}.pdf`;
+      const blobName = `${capDirName}/${code}_cap${capNumber}.pdf`;
 
       const added = await addToArchive(archive, blobName);
       if (added) {
         addedAny = true;
-        addedAnyLocal = true;
       }
     }
+  } else {
+    for (const [i, capDirName] of caps.entries()) {
+      let addedAnyLocal = false;
 
-    if (!addedAnyLocal) {
-      console.log(`No PDFs found for ${capDirName}`);
+      for (const code of collegeCodes) {
+        const blobName = `${capDirName}/${code}_cap${i + 1}.pdf`;
+
+        const added = await addToArchive(archive, blobName);
+        if (added) {
+          addedAny = true;
+          addedAnyLocal = true;
+        }
+      }
+
+      if (!addedAnyLocal) {
+        console.log(`No PDFs found for ${capDirName}`);
+      }
     }
   }
 

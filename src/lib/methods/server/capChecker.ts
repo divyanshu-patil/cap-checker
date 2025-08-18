@@ -7,7 +7,13 @@ export async function checkIfCapStarted(
   const $ = cheerio.load(data);
 
   const tableHeader = $(".whitebox table tr").first().find("th");
-  const cap2Row = tableHeader.eq(capNumber - 2); // -2 for sr no and inst code
+  // Ignore first 3 (Sr No, Inst Code, Inst Name)
+  const capHeaders = tableHeader.slice(3);
+
+  // Now capNumber = 1 → CAP I, 2 → CAP II
+  const capRow = capHeaders.eq(capNumber - 1);
+
+  console.log("cap row", capRow.html());
 
   console.log(); // for formatting
 
@@ -17,8 +23,8 @@ export async function checkIfCapStarted(
 
   console.log(); // for formatting
 
-  if (!cap2Row.html()) {
-    console.log("cap 2 hasnt started");
+  if (!capRow.html()) {
+    console.log(`cap ${capNumber} hasnt started`);
     return false;
   }
 

@@ -13,19 +13,32 @@ import {
 //   error?: string;
 // };
 
-export const submitInstitutes = async (instituteCodes: number[]) => {
+export const submitInstitutes = async (
+  instituteCodes: number[],
+  capNumber = 0
+) => {
   try {
+    const apiUrl =
+      capNumber === 0 ? "/api/getInstPdfZip" : "/api/getCapPdfZip/" + capNumber;
     const res: AxiosResponse<ArrayBuffer> = await axios.post(
-      "/api/getInstPdfZip",
+      apiUrl,
       { codes: instituteCodes },
       { responseType: "blob" }
     );
+
+    // get filename from headers
+    const disposition = res.headers["content-disposition"];
+    let filename = "capPdf.zip";
+    if (disposition && disposition.includes("filename=")) {
+      filename = disposition.split("filename=")[1].replace(/"/g, "");
+    }
+
     const blob = new Blob([res.data], { type: "application/zip" });
     const url = window.URL.createObjectURL(blob);
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "capPdf.zip";
+    a.download = filename;
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -33,16 +46,35 @@ export const submitInstitutes = async (instituteCodes: number[]) => {
 
     const response = await axios.post("/api/log", { codes: instituteCodes });
     console.log(response.data);
-  } catch (err) {
-    const error = err as AxiosError;
-    if (error.status === 404) {
-      throw new NotFoundError("there are no colleges with given college code");
-    } else if (error.status === 400 && error.name === "MissingFieldsError") {
+  } catch (err: any) {
+    const error = err as AxiosError<Blob>; // Blob response type
+    const status = error.response?.status;
+    let serverError: string | undefined;
+    let name: string | undefined;
+
+    if (error.response?.data instanceof Blob) {
+      try {
+        const text = await error.response.data.text(); // convert Blob to plain string
+        const json = JSON.parse(text);
+        serverError = json.error;
+        name = json.name;
+      } catch {
+        // fallback if it's not valid JSON
+        serverError = undefined;
+      }
+    }
+
+    const message = serverError || error.message;
+    console.log(serverError);
+    console.log(error);
+    if (status === 404) {
+      throw new NotFoundError(message);
+    } else if (status === 400 && name === MissingFieldsError.name) {
       throw new MissingFieldsError("provide college code");
-    } else if (error.status === 400) {
+    } else if (status === 400) {
       throw new InvalidFieldsError("invalid request");
-    } else if (error.status === 500) {
-      throw new ServerError("there is problem getting data...");
+    } else if (status === 500) {
+      throw new ServerError(message);
     } else {
       throw new Error(error.message);
     }

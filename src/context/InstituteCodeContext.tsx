@@ -14,7 +14,7 @@ export const InstituteCodeContext = createContext<InstituteCodeContextType>({
 export const InstituteCodeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [instituteCodes, setInstituteCodes] = useState<number[]>([16006, 3012]);
+  const [instituteCodes, setInstituteCodes] = useState<number[]>([6271]);
 
   return (
     <InstituteCodeContext.Provider

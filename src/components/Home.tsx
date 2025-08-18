@@ -8,7 +8,7 @@ import Download from "./Download";
 
 const Home = () => {
   return (
-    <div className="h-screen self-center max-w-screen overflow-hidden flex flex-col justify-center items-center gap-15">
+    <div className="min-h-[90vh] pb-32 self-center max-w-screen  overflow-hidden flex flex-col justify-center items-center gap-15">
       <div className="flex flex-col gap-4">
         <div>
           {strings.meta.appName.split(" ").map((val, index) => (

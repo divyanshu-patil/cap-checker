@@ -7,12 +7,12 @@ interface Data {
   data?: any;
 }
 
-export async function fetchDataStatus(collegeCodes: number[]): Promise<Data> {
+export async function fetchDataStatus(capNumber = 1): Promise<Data> {
+  console.log("from fetch data status", capNumber);
   const { data } = await axios.get(process.env.TARGET_SITE as string);
-  const capAllotmentAvailable = await checkIfCapStarted(data, 1);
+  const capAllotmentAvailable = await checkIfCapStarted(data, capNumber);
   if (capAllotmentAvailable) {
     return { status: true, data };
-    // await getCollegeDataFromCodes(data, collegeCodes);
   }
   return { status: false };
 }

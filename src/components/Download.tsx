@@ -15,17 +15,19 @@ import {
   NotFoundError,
   ServerError,
 } from "@/lib/errors";
+import CapSelector from "./CapSelector";
 
 const Download = () => {
   const { instituteCodes } = useContext(InstituteCodeContext);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [capNumber, setCapNumber] = useState<number>(0);
 
   const handleClick = async () => {
     setLoading(true);
     try {
-      await submitInstitutes(instituteCodes);
+      await submitInstitutes(instituteCodes, capNumber);
     } catch (error) {
       if (error instanceof NotFoundError) {
         setError(error.message);
@@ -51,6 +53,8 @@ const Download = () => {
           subtitle="this may take up to 20-30 seconds"
         />
       )}
+
+      <CapSelector value={capNumber} onValueChange={setCapNumber} />
       <SubmitButton onClick={handleClick} />
     </>
   );

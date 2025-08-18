@@ -6,7 +6,7 @@ import { strings } from "@/constants/strings";
 
 const Navbar = () => {
   return (
-    <nav className="w-full fixed top-0 left-0 z-30 flex justify-between items-center backdrop-blur-sm bg-black/25 px-10">
+    <nav className="w-full  flex justify-between items-center backdrop-blur-sm bg-black/25 px-10">
       <Link href={"/"}>
         <div className="relative h-20 aspect-square">
           <Image src="/logo.png" alt="App logo" fill />
