@@ -44,7 +44,11 @@ export const submitInstitutes = async (
     a.remove();
     window.URL.revokeObjectURL(url);
 
-    const response = await axios.post("/api/log", { codes: instituteCodes });
+    const cap = capNumber === 0 ? "All cap rounds" : capNumber;
+    const response = await axios.post("/api/log", {
+      codes: instituteCodes,
+      cap,
+    });
     console.log(response.data);
   } catch (err: any) {
     const error = err as AxiosError<Blob>; // Blob response type

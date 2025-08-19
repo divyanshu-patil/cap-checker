@@ -5,11 +5,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { codes } = body;
+  const { codes, cap } = body;
 
   const ip = req.headers.get("x-forwarded-for") || "unknown";
   const timestamp = new Date().toISOString();
-  const newEntry = `[${timestamp}]: IP=${ip} requested institutes ${codes}\n`;
+  const newEntry = `[${timestamp}]: IP=${ip} requested institutes ${codes} for CAP rounds: ${cap}\n`;
 
   try {
     const meta = await head(logPath);
