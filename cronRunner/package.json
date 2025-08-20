@@ -1,0 +1,33 @@
+{
+  "name": "globalcart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "getCollection.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc -w & nodemon dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "cheerio": "^1.0.0",
+    "module-alias": "^2.2.3",
+    "play-sound": "^1.1.6"
+  },
+  "devDependencies": {
+    "@types/audio-play": "^2.3.2",
+    "@types/node": "^24.0.3",
+    "@types/play-sound": "^1.1.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "_moduleAliases": {
+    "@src": "src"
+  }
+}
