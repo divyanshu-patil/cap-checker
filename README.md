@@ -41,9 +41,39 @@ npm run dev
 
 ---
 
+## To run the periodic tasks to check if Cap 3 or Cap 4 allotment available
+
+- Navigate to directory
+
+```bash
+cd cronRunner
+```
+
+- Install dependencies
+
+```bash
+npm i
+```
+
+- Run project
+
+```bash
+npm run dev
+```
+
+### if you want to change colleges that will be displayed when list is available
+
+- change `COLLEGE_CODES` in the `cronRunner/src/index.ts`, add or remove colleges as per your need
+
+---
+
 # Directory Structure
 
 ```
+cronRunner
+|───src
+|   └───index.ts          // change parameters from here as per your need
+src
 ├───app
 │   └───api
 │       ├───data          // used in legacy code currently not using
