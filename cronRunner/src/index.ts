@@ -6,8 +6,9 @@ import { exec } from "child_process";
 
 import player from "play-sound";
 
-const CAP_NUMBER = 2;
+const CAP_NUMBER = 3;
 const COLLEGE_CODES = [6272];
+const INTERVAL = 30; // 30 sec
 const checkCapCronTask = async () => {
   console.log(
     "\n\n=====================running task at " +
@@ -56,7 +57,7 @@ async function start() {
     } else {
       console.log("not started");
     }
-  }, 1000 * 5);
+  }, 1000 * INTERVAL);
 }
 
 start();
