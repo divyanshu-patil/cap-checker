@@ -8,7 +8,7 @@ import player from "play-sound";
 
 const CAP_NUMBER = 3;
 const COLLEGE_CODES = [6272];
-const INTERVAL = 30; // 30 sec
+const INTERVAL = 60; // 60 sec
 const checkCapCronTask = async () => {
   console.log(
     "\n\n=====================running task at " +
