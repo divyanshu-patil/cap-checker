@@ -58,7 +58,7 @@ npm i
 - Run project
 
 ```bash
-npm run dev
+npm start
 ```
 
 ### if you want to change colleges that will be displayed when list is available
